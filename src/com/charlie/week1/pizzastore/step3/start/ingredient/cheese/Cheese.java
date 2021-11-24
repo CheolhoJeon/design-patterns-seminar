@@ -1,0 +1,5 @@
+package com.charlie.week1.pizzastore.step3.start.ingredient.cheese;
+
+public interface Cheese {
+
+}
