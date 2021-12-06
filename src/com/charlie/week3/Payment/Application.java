@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Application {
     private static Map<String, Integer> priceOnProducts = new HashMap<>();
-    private static PayStrategy strategy;
+    private static PaymentModule paymentModule = new PaymentModule(new PayByPayPal());
 
     static {
         priceOnProducts.put("오브젝트", 2200);
@@ -15,12 +15,11 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        strategy = new PayByPayPal();
         int totalPrice = 0;
 
         totalPrice += priceOnProducts.get("오브젝트");
         totalPrice += priceOnProducts.get("데이터베이스");
 
-        strategy.pay(totalPrice);
+        paymentModule.pay(totalPrice);
     }
 }
